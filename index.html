@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GEOLOCATION AND LOCATION</title>
+</head>
+<body>
+  <p id="location"></p>
+  <button onclick="geolocation()">Show Location</button>
+  <button onclick="success()">Show Location</button>
+  
+<hr/>
+
+  <button onclick="save()">Save Data</button>
+  <button onclick="getLocation()">Get Data</button>
+
+
+  <script>
+     const p = document.getElementById('location');
+
+    function geolocation(){
+      if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(success);
+      } else {
+        p.innerHTML = "geolocation is not supported by your browser"
+      }
+
+     }
+
+    function success(position){
+      console.log(position);
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    p.innerHTML = "latitude " + latitude + "<br> longtitude " + longitude;
+
+    }
+
+//storage
+
+    function save(){
+      if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(success);
+      } else {
+        p.innerHTML = "geolocation is not supported by your browser"
+      }
+
+     }
+
+    function getDetails(position){
+      console.log(position);
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    p.innerHTML = "latitude " + latitude + "<br> longtitude " + longitude;
+
+    }
+  </script>
+</body>
+</html>
